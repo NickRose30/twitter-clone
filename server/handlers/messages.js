@@ -27,9 +27,23 @@ exports.createMessage = async (req, res, next) => {
 };
 
 exports.getMessage = async (req, res, next) => {
-
+  try {
+    const message = await db.Message.find(req.params.message_id);
+    return res.status(200).json(message);
+  } catch (e) {
+    return next(e);
+  }
 };
 
 exports.deleteMessage = async (req, res, next) => {
-
+  try {
+    /** There is a mongoose method called findByIdAndRemove, which would normally be good here, but we have a pre-remove
+     * hook in our message model, which does not work with findByIdAndRemove, so we have to find, then remove.
+     */
+    const foundMessage = await db.Message.findById(req.params.message_id);
+    await foundMessage.remove();
+    return res.status(200).json(foundMessage);
+  } catch (e) {
+    return next(e);
+  }
 };

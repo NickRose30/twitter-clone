@@ -8,17 +8,22 @@ const User = require('./user');
  * object has to be exactly what we called the user schema. For example, if we typed 'user' with a lowercase
  * 'u' everything would break.
  */
-const messageSchema = new mongoose.Schema({
-  text: {
-    type: String,
-    require: true,
-    maxLength: 160
+const messageSchema = new mongoose.Schema(
+  {
+    text: {
+      type: String,
+      require: true,
+      maxLength: 160
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
   },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+  {
+    timestamps: true
   }
-});
+);
 
 
 /**

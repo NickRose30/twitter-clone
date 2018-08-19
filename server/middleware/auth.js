@@ -22,18 +22,39 @@ exports.loginRequired = (req, res, next) => {
          */
         return next({
           status: 401,
-          message: 'Please log in first'
+          message: 'Please log in first.'
         });
       }
     });
   } catch(e) {
     next({
       status: 401,
-      message: 'Please log in first'
+      message: 'Please log in first.'
     });
   }
 };
 
+/**
+ * Pretty much the same method as above, but instead of just checking if 'decoded' exists, we check if it's id is
+ * the same as the user we are trying to create the message for.
+ */
 exports.ensureCorrectUser = (req, res, next) => {
-
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+      if(decoded && decoded.id === req.params.id) {
+        next();
+      } else {
+        return next({
+          status: 401,
+          message: 'Unauthorized'
+        });
+      }
+    });
+  } catch(e) {
+    next({
+      status: 401,
+      message: 'Unauthorized'
+    });
+  }
 };
