@@ -1,0 +1,40 @@
+body {
+    background-image: url('./images/bird.jpg');
+}
+
+/* Landing Page Styles */
+
+.navbar {
+    margin-bottom: 1rem;
+}
+
+.nav.navbar-nav a {
+    font-weight: bold;
+}
+
+.navbar-brand > h1 {
+    display: inline-block;
+    margin: 0;
+    color: white;
+}
+
+.navbar-right {
+    margin: 1.5rem 1.5rem 0 0;
+}
+
+ul.nav.navbar-nav li a {
+    color: white;
+    margin: 0 0.5rem;
+    padding: 10px 30px;
+    border: 1px solid white;
+    border-radius: 100px;
+}
+
+ul.nav.navbar-nav li:hover a {
+    background: white;
+    color: #4d8fd7;
+}
+
+.container-fluid {
+    display: inline-block;
+}
