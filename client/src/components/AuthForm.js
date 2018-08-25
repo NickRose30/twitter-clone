@@ -38,12 +38,19 @@ class AuthForm extends Component {
 
   render() {
     const { username, email, profileImageUrl, password, confirmPassword } = this.state;
-    const { heading, buttonText, signUp } = this.props;
+    const { heading, buttonText, signUp, errors, removeError, history } = this.props;
+
+    /** This will listen for any change in the route and will execute the callback when a route change occurs */
+    history.listen(() => {
+      removeError();
+    });
+
     return (
       <div className='row justify-content-md-center text-center'>
         <div className='col-md-6'>
           <form onSubmit={this.handleSubmit}>
             <h2>{heading}</h2>
+            {errors.message && (<div className='alert alert-danger'>{errors.message}</div>)}
             {signUp && (
               <div>
                 <label htmlFor='username'>Username:</label>

@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import Homepage from '../components/Homepage';
 import AuthForm from '../components/AuthForm';
 import { authUser } from "../store/actions/auth";
+import { removeError } from "../store/actions/error";
 
 const Main = props => {
-  const { authUser } = props;
+  const { authUser, errors, removeError } = props;
   return (
     <div className='container'>
       <Switch>
@@ -16,6 +17,8 @@ const Main = props => {
             buttonText='Log In'
             heading='Welcome Back'
             onAuth={authUser}
+            errors={errors}
+            removeError={removeError}
             {...props}
           />
         )}/>
@@ -24,6 +27,8 @@ const Main = props => {
             buttonText='Sign Up'
             heading='Join Today'
             onAuth={authUser}
+            errors={errors}
+            removeError={removeError}
             signUp
             {...props}
           />
@@ -35,13 +40,15 @@ const Main = props => {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    errors: state.errors
   }
 };
 
 const mapDispatchToProps = () => {
   return {
-    authUser
+    authUser,
+    removeError
   }
 };
 

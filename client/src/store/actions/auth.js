@@ -1,5 +1,6 @@
 import { axiosHelper } from '../../services/api';
 import { SET_CURRENT_USER } from '../actionTypes';
+import { addError, removeError } from "./error";
 
 export const setCurrentUser = user => {
   return {
@@ -15,9 +16,11 @@ export const authUser = (type, userData) => {
         .then(({ ...user, token }) => {
           localStorage.setItem('jwtToken', token);
           dispatch(setCurrentUser(user));
+          dispatch(removeError());
           resolve();
         }).catch(err => {
-          reject(err);
+          dispatch(addError(err.message));
+          reject();
         });
       }
     );
