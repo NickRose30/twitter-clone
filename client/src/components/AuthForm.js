@@ -24,14 +24,20 @@ class AuthForm extends Component {
     e.preventDefault();
     const type = this.props.signUp ? 'signup' : 'authenticate';
     this.props.onAuth(type, this.state).then(() => {
-      console.log('logged in successfully');
+      this.setState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        profileImageUrl: ''
+      })
     }).catch(err => {
       console.log(err);
     });
   };
 
   render() {
-    const { username, email, profileImageUrl } = this.state;
+    const { username, email, profileImageUrl, password, confirmPassword } = this.state;
     const { heading, buttonText, signUp } = this.props;
     return (
       <div className='row justify-content-md-center text-center'>
@@ -65,6 +71,7 @@ class AuthForm extends Component {
               className='form-control'
               id='password'
               type='password'
+              value={password}
               name='password'
               onChange={this.handleChange}
             />
@@ -75,6 +82,7 @@ class AuthForm extends Component {
                   className='form-control'
                   id='confirmPassword'
                   type='password'
+                  value={confirmPassword}
                   name='confirmPassword'
                   onChange={this.handleChange}
                 />
