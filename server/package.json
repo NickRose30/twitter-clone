@@ -9,7 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "proxy": "http://localhost:8081",
   "dependencies": {
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
