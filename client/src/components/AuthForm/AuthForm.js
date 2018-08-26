@@ -50,7 +50,7 @@ class AuthForm extends Component {
       <div className='row text-center'>
         <div className='col-md-5'>
           <form onSubmit={this.handleSubmit}>
-            <h1>{heading}</h1>
+            <h1 className='auth-header'>{heading}</h1>
             {errors.message && (<div className='alert alert-danger'>{errors.message}</div>)}
             {signUp && (
               <div>
@@ -109,7 +109,7 @@ class AuthForm extends Component {
             <p className='subText'>
               {subText}
               <a className='redirect-link' href={signUp ? 'signin' : 'signup'}>
-                {signUp ? 'Log in here.' : 'Sign up now.'}
+                {signUp ? ' Log in here.' : ' Sign up now.'}
               </a>
             </p>
           </form>

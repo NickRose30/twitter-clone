@@ -1,6 +1,6 @@
 .col-md-5 {
     float: none;
-    margin: 30px auto;
+    margin: 0 auto 30px auto;
     background: rgba(170, 170, 170, 0.5);
     padding: 30px;
     border-radius: 3px;
@@ -25,18 +25,25 @@
 
 .btn-primary {
     margin: 25px auto 10px auto;
+    background: #4d8fd7;
+    border: none;
+    border-radius: 0;
 }
 
-.btn-primary:focus, .btn-primary:active {
+.btn-primary:focus {
+    background: #4d8fd7;
+}
+
+.btn-primary:focus, .btn-primary:active:focus {
     outline: none;
 }
 
-h1, label, .subText {
+.auth-header, label, .subText {
     color: white;
     text-shadow: 0 2px 5px #000000;
 }
 
-h1 {
+.auth-header {
     margin: 0 auto 30px auto;
 }
 
