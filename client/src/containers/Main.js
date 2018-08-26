@@ -24,6 +24,7 @@ const Main = props => {
             <Landing
               buttonText='Log In'
               heading='Welcome Back'
+              subText={`Don't have an account yet?`}
               onAuth={authUser}
               errors={errors}
               removeError={removeError}
@@ -36,6 +37,7 @@ const Main = props => {
             <Landing
               buttonText='Sign Up'
               heading='Join Today'
+              subText={`Already  have an account?`}
               onAuth={authUser}
               errors={errors}
               removeError={removeError}

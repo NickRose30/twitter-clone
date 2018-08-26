@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AuthForm.css';
 
 class AuthForm extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class AuthForm extends Component {
 
   render() {
     const { username, email, profileImageUrl, password, confirmPassword } = this.state;
-    const { heading, buttonText, signUp, errors, removeError, history } = this.props;
+    const { heading, buttonText, signUp, errors, removeError, history, subText } = this.props;
 
     /** This will listen for any change in the route and will execute the callback when a route change occurs */
     history.listen(() => {
@@ -46,10 +47,10 @@ class AuthForm extends Component {
     });
 
     return (
-      <div className='row justify-content-md-center text-center'>
-        <div className='col-md-6'>
+      <div className='row text-center'>
+        <div className='col-md-5'>
           <form onSubmit={this.handleSubmit}>
-            <h2>{heading}</h2>
+            <h1>{heading}</h1>
             {errors.message && (<div className='alert alert-danger'>{errors.message}</div>)}
             {signUp && (
               <div>
@@ -105,6 +106,12 @@ class AuthForm extends Component {
               </div>
             )}
             <button type='submit' className='btn btn-primary btn-block btn-lg'>{ buttonText }</button>
+            <p className='subText'>
+              {subText}
+              <a className='redirect-link' href={signUp ? 'signin' : 'signup'}>
+                {signUp ? 'Log in here.' : 'Sign up now.'}
+              </a>
+            </p>
           </form>
         </div>
       </div>

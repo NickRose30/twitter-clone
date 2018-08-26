@@ -1,0 +1,48 @@
+.col-md-5 {
+    float: none;
+    margin: 30px auto;
+    background: rgba(170, 170, 170, 0.5);
+    padding: 30px;
+    border-radius: 3px;
+    box-shadow: 0 17px 90px 5px rgba(0,0,0,0.75);
+}
+
+.form-control {
+    margin-bottom: 10px;
+    background: none;
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid #dad3d3;
+    border-radius: 7px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: none;
+}
+
+.btn-primary {
+    margin: 25px auto 10px auto;
+}
+
+.btn-primary:focus, .btn-primary:active {
+    outline: none;
+}
+
+h1, label, .subText {
+    color: white;
+    text-shadow: 0 2px 5px #000000;
+}
+
+.subText {
+    margin: 0;
+}
+
+.redirect-link {
+    color: #93c9f7;
+}
+
+.redirect-link:hover {
+    color: #93c9f7;
+}
