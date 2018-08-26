@@ -4,6 +4,8 @@
  */
 const db = require('../models');
 const jwt = require('jsonwebtoken');
+/** The amount of time the jwt tokens will be valid for. */
+const tokenExpiration = '10m';
 
 exports.authenticate = async (req, res, next) => {
   try {
@@ -27,7 +29,8 @@ exports.authenticate = async (req, res, next) => {
           username,
           profileImageUrl
         },
-        process.env.SECRET_KEY
+        process.env.SECRET_KEY,
+        { expiresIn: tokenExpiration }
       );
       /**
        * Return a 200 if it gets to this point and everything is good. It is helpful to
@@ -66,7 +69,8 @@ exports.signup = async (req, res, next) => {
         username,
         profileImageUrl
       },
-      process.env.SECRET_KEY
+      process.env.SECRET_KEY,
+      { expiresIn: tokenExpiration }
     );
     /**
      * Return a 200 if it gets to this point and everything is good. It is helpful to
@@ -92,4 +96,10 @@ exports.signup = async (req, res, next) => {
       message: err.message
     });
   }
+};
+
+exports.validate = async (req, res, next) => {
+  return res.status(200).json({
+    yes: 'okay'
+  })
 };

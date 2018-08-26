@@ -6,6 +6,7 @@ import Landing from '../components/Landing/Landing';
 import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/error";
 import Navbar from "./Navbar";
+import { validateToken } from '../store/actions/auth';
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -61,7 +62,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = () => {
   return {
     authUser,
-    removeError
+    removeError,
+    validateToken
   }
 };
 

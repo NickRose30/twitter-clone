@@ -16,6 +16,22 @@ export const logout = () => {
   };
 };
 
+export const validateToken = () => {
+  return dispatch => {
+    return new Promise((resolve, reject) => {
+      return axiosHelper('post', '/api/auth/validateToken', {})
+        .then(user => {
+          dispatch(setCurrentUser(user));
+          dispatch(removeError());
+          resolve();
+        }).catch(err => {
+          dispatch(addError(err.message));
+          reject();
+        });
+    })
+  }
+};
+
 export const authUser = (type, userData) => {
   return dispatch => {
     return new Promise((resolve, reject) => {
