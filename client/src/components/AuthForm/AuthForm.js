@@ -32,7 +32,13 @@ class AuthForm extends Component {
         password: '',
         confirmPassword: '',
         profileImageUrl: ''
-      })
+      });
+      /**
+       * This is how we redirect the user to the homepage upon logging in or signing up. We use the
+       * history object that react router gives us. We have access to this because of the 'withRouter'
+       * method that we used in our Main.js file when exporting the component.
+       */
+      this.props.history.push('/');
     }).catch(err => {
       console.log(err);
     });

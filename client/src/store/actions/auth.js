@@ -9,6 +9,13 @@ export const setCurrentUser = user => {
   }
 };
 
+export const logout = () => {
+  return dispatch => {
+    localStorage.clear();
+    dispatch(setCurrentUser({}));
+  };
+};
+
 export const authUser = (type, userData) => {
   return dispatch => {
     return new Promise((resolve, reject) => {

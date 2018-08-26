@@ -7,6 +7,10 @@
     border-radius: 0;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 .nav.navbar-nav a {
     font-weight: bold;
 }

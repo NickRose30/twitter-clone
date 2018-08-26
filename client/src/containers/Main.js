@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Homepage from '../components/Homepage/Homepage';
 import Landing from '../components/Landing/Landing';
@@ -46,6 +46,7 @@ const Main = props => {
             />
           </div>
         )}/>
+        <Route path='/' render={() => <Redirect to='/' />} />
       </Switch>
   )
 };
