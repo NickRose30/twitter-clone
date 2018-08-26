@@ -19,8 +19,9 @@ export const logout = () => {
 export const validateToken = () => {
   return dispatch => {
     return new Promise((resolve, reject) => {
-      return axiosHelper('post', '/api/auth/validateToken', {})
-        .then(user => {
+      return axiosHelper('post', '/api/auth/validateToken', {
+        token: localStorage.getItem('jwtToken')
+      }).then(user => {
           dispatch(setCurrentUser(user));
           dispatch(removeError());
           resolve();
