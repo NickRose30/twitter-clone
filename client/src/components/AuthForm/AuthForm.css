@@ -7,6 +7,8 @@
     box-shadow: 0 17px 90px 5px rgba(0,0,0,0.75);
 }
 
+/* Text input styles */
+
 .form-control {
     color: white;
     margin-bottom: 10px;
@@ -23,20 +25,24 @@
     box-shadow: none;
 }
 
-.btn-primary {
+/* Sign up/Sign in button styles */
+
+.btn-primary, .btn-primary:focus {
     margin: 25px auto 10px auto;
     background: #4d8fd7;
     border: none;
     border-radius: 0;
 }
 
-.btn-primary:focus {
-    background: #4d8fd7;
-}
-
 .btn-primary:focus, .btn-primary:active:focus {
     outline: none;
 }
+
+.btn-primary:focus:hover {
+    background: #286090;
+}
+
+/* Header and label styles */
 
 .auth-header, label, .subText {
     color: white;
@@ -47,14 +53,19 @@
     margin: 0 auto 30px auto;
 }
 
+/* Bottom subtext styles */
+
 .subText {
     margin: 0;
 }
 
-.redirect-link {
+.redirect-link, .redirect-link:focus {
+    outline: none;
     color: #93c9f7;
+    text-decoration: none;
 }
 
-.redirect-link:hover {
+.redirect-link:hover, .redirect-link:focus:hover {
     color: #93c9f7;
+    text-decoration: underline;
 }

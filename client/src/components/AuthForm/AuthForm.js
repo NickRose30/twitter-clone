@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './AuthForm.css';
+import { Link } from 'react-router-dom';
 
 class AuthForm extends Component {
   constructor(props) {
@@ -108,9 +109,9 @@ class AuthForm extends Component {
             <button type='submit' className='btn btn-primary btn-block btn-lg'>{ buttonText }</button>
             <p className='subText'>
               {subText}
-              <a className='redirect-link' href={signUp ? 'signin' : 'signup'}>
+              <Link className='redirect-link' to={signUp ? 'signin' : 'signup'}>
                 {signUp ? ' Log in here.' : ' Sign up now.'}
-              </a>
+              </Link>
             </p>
           </form>
         </div>

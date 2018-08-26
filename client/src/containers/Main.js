@@ -8,14 +8,14 @@ import { removeError } from "../store/actions/error";
 import Navbar from "./Navbar";
 
 const Main = props => {
-  const { authUser, errors, removeError } = props;
+  const { authUser, errors, removeError, currentUser } = props;
   return (
       <Switch>
         <Route exact path='/' render={props => (
           <div>
             <Navbar />
             <div className='container'>
-              <Homepage {...props} />
+              <Homepage currentUser={currentUser} {...props} />
             </div>
           </div>
         )}/>
