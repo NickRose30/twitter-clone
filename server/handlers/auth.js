@@ -5,7 +5,7 @@
 const db = require('../models');
 const jwt = require('jsonwebtoken');
 /** The amount of time the jwt tokens will be valid for. */
-const tokenExpiration = '5m';
+const tokenExpiration = '10m';
 
 exports.authenticate = async (req, res, next) => {
   try {
@@ -109,6 +109,36 @@ exports.validate = async (req, res, next) => {
         return res.status(200).json({});
       }
     });
+  } catch(err) {
+    return next({
+      status: 400,
+      message: err.message
+    });
+  }
+};
+
+exports.refresh = async (req, res, next) => {
+  try {
+    let newToken;
+    if (req.body.token) {
+      const accessToken = req.body.token;
+      jwt.verify(accessToken, process.env.SECRET_KEY, (err, decoded) => {
+        if(decoded) {
+          console.log(decoded);
+          const { id, username, profileImageUrl } = decoded;
+          newToken = jwt.sign(
+            {
+              id,
+              username,
+              profileImageUrl
+            },
+            process.env.SECRET_KEY,
+            { expiresIn: tokenExpiration }
+          );
+        }
+      });
+    }
+    return res.status(200).json(newToken ? { token: newToken } : {});
   } catch(err) {
     return next({
       status: 400,
