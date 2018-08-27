@@ -17,7 +17,8 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    this.props.validateToken().then(() => this.setState({tokenValidated: true}));
+    this.props.validateToken()
+      .then(() => this.setState({tokenValidated: true}));
   }
 
   render() {
@@ -51,7 +52,7 @@ class Main extends Component {
               <Landing
                 buttonText='Sign Up'
                 heading='Join Today'
-                subText={`Already  have an account?`}
+                subText='Already have an account?'
                 onAuth={authUser}
                 errors={errors}
                 removeError={removeError}
@@ -69,7 +70,7 @@ class Main extends Component {
       )
     }
   }
-};
+}
 
 const mapStateToProps = state => {
   return {
