@@ -124,7 +124,6 @@ exports.refresh = async (req, res, next) => {
       const accessToken = req.body.token;
       jwt.verify(accessToken, process.env.SECRET_KEY, (err, decoded) => {
         if(decoded) {
-          console.log(decoded);
           const { id, username, profileImageUrl } = decoded;
           newToken = jwt.sign(
             {
