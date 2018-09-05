@@ -1,4 +1,4 @@
-import { axiosHelper } from '../../services/api';
+import { axiosHelper, setTokenHeader } from '../../services/api';
 import { SET_CURRENT_USER } from '../actionTypes';
 import { addError, removeError } from "./error";
 
@@ -9,9 +9,12 @@ export const setCurrentUser = user => {
   }
 };
 
+export const setAuthorizationToken = token => setTokenHeader(token);
+
 export const logout = () => {
   return dispatch => {
     localStorage.clear();
+    setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
   };
 };
@@ -22,7 +25,7 @@ export const validateToken = () => {
       return axiosHelper('post', '/api/auth/validateToken', {
         token: localStorage.getItem('jwtToken')
       }).then(user => {
-          dispatch(setCurrentUser(user));
+          dispatch(setCurrentUser(user.token || false));
           dispatch(removeError());
           resolve();
         }).catch(err => {
@@ -39,6 +42,7 @@ export const authUser = (type, userData) => {
       return axiosHelper('post', `/api/auth/${type}`, userData)
         .then(({ ...user, token }) => {
           localStorage.setItem('jwtToken', token);
+          setAuthorizationToken(token);
           dispatch(setCurrentUser(user));
           dispatch(removeError());
           resolve();

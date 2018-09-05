@@ -18,7 +18,8 @@ class Main extends Component {
 
   componentDidMount() {
     this.props.validateToken()
-      .then(() => this.setState({tokenValidated: true}));
+      .then(() => this.setState({tokenValidated: true}))
+      .catch(() => console.log('There was an error validating your token.'));
   }
 
   render() {
