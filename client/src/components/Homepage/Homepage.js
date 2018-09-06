@@ -1,10 +1,11 @@
 import React from 'react';
+import MessageTimeline from '../Messages/MessageTimeline';
 
 const Homepage = ({ currentUser, history }) => (
   <div>{currentUser.isAuthenticated ?
-    <div>This is the homepage</div> :
+    <MessageTimeline /> :
     history.push('/signin')
-  }</div>
+  } </div>
 );
 
 export default Homepage;

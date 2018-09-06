@@ -22,7 +22,7 @@ export const setTokenHeader = token => {
  */
 export const axiosHelper = (method, path, data) => {
   return new Promise((resolve, reject) => {
-    return axios[method](path, data)
+    return axios[method.toLowerCase()](path, data)
       .then(res => {
         const token = localStorage.getItem('jwtToken') ? localStorage.getItem('jwtToken') : null;
         axios['post']('/api/auth/refreshToken', {token})

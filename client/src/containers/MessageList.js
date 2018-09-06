@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchMessages } from "../store/actions/messages";
+import MessageItem from '../components/Messages/MessageItem';
 
-const MessageList = props => (
-  <div>This is the message list</div>
-);
+class MessageList extends Component {
+  componentDidMount() {
+    this.props.fetchMessages();
+  }
 
-export default MessageList;
+  render() {
+    const { messages } = this.props;
+    return messages.map(m => (
+      <MessageItem
+        key={m._id}
+        date={m.createdAt}
+        text={m.text}
+        username={m.user.username}
+        profileImageUrl={m.user.profileImageUrl}
+      />
+    ));
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    messages: state.messages
+  }
+};
+
+export default connect(mapStateToProps, { fetchMessages })(MessageList);
