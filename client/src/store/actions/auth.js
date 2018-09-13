@@ -26,7 +26,7 @@ export const validateToken = () => {
       return axiosHelper('post', '/api/auth/validateToken', {
         token: localStorage.getItem('jwtToken')
       }).then(user => {
-          dispatch(setCurrentUser(jwtDecode(user.token) || false));
+          dispatch(setCurrentUser(user.token ? jwtDecode(user.token) : {}));
           dispatch(removeError());
           resolve();
         }).catch(err => {

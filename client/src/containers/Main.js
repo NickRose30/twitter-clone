@@ -7,6 +7,23 @@ import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/error";
 import Navbar from "./Navbar/Navbar";
 import { validateToken } from '../store/actions/auth';
+import { css } from 'react-emotion';
+import { ScaleLoader } from 'react-spinners';
+
+const loadingContainerStyles = {
+  height: '100vh',
+  display: 'flex',
+  alignItems: 'center'
+};
+
+const loadingStylesOverride = css`
+    margin: auto;
+    
+    &>div {
+      height: 20px;
+      animation-delay: 0;
+    }
+`;
 
 class Main extends Component {
   constructor(props) {
@@ -67,7 +84,15 @@ class Main extends Component {
       )
     } else {
       return (
-        <div>loading...</div>
+        <div className='sweet-loading' style={loadingContainerStyles}>
+          <ScaleLoader
+            className={loadingStylesOverride}
+            sizeUnit={"px"}
+            size={150}
+            color={'#4d8fd7'}
+            style={{margin: 'auto'}}
+          />
+        </div>
       )
     }
   }
