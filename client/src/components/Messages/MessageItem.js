@@ -6,24 +6,26 @@ import Moment from 'react-moment';
 const MessageItem = ({ date, profileImageUrl, text, username }) => {
   return (
     <div>
-      <img
-        src={profileImageUrl || DefaultProfileImage}
-        alt={username}
-        height='100'
-        width='100'
-        className='timeline-image'
-      />
-      <div className='message-area'>
-        <Link to='/'>@{username}&nbsp;</Link>
-        <span className='text-muted'>
-          {date &&
-            <Moment className='text-muted' format=' Do MMM YYYY' >
-              {date}
-            </Moment>
-          }
-        </span>
-        <p>{text}</p>
-      </div>
+      <li className='list-group-item' >
+        <img
+          src={profileImageUrl || DefaultProfileImage}
+          alt={username}
+          height='100'
+          width='100'
+          className='timeline-image'
+        />
+        <div className='message-area'>
+          <Link to='/'>@{username}&nbsp;</Link>
+          <span className='text-muted'>
+            {date &&
+              <Moment className='text-muted' format=' Do MMM YYYY' >
+                {date}
+              </Moment>
+            }
+          </span>
+          <p>{text}</p>
+        </div>
+      </li>
     </div>
   )
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout } from '../store/actions/auth';
+import { logout } from '../../store/actions/auth';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -18,9 +18,6 @@ class Navbar extends Component {
           </Link>
         </div>
         <ul className='nav navbar-nav navbar-right'>
-          <li>
-            <Link to='/'>Go Home</Link>
-          </li>
           <li>
             <a onClick={this.logout}>Log Out</a>
           </li>

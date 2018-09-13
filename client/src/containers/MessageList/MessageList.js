@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchMessages } from "../store/actions/messages";
-import MessageItem from '../components/Messages/MessageItem';
+import { fetchMessages } from "../../store/actions/messages";
+import MessageItem from '../../components/Messages/MessageItem';
+import './MessageList.css';
 
 class MessageList extends Component {
   componentDidMount() {

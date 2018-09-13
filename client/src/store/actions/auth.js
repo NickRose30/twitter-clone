@@ -1,3 +1,4 @@
+import jwtDecode from 'jwt-decode';
 import { axiosHelper, setTokenHeader } from '../../services/api';
 import { SET_CURRENT_USER } from '../actionTypes';
 import { addError, removeError } from "./error";
@@ -25,7 +26,7 @@ export const validateToken = () => {
       return axiosHelper('post', '/api/auth/validateToken', {
         token: localStorage.getItem('jwtToken')
       }).then(user => {
-          dispatch(setCurrentUser(user.token || false));
+          dispatch(setCurrentUser(jwtDecode(user.token) || false));
           dispatch(removeError());
           resolve();
         }).catch(err => {

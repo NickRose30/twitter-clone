@@ -5,7 +5,7 @@ import Homepage from '../components/Homepage/Homepage';
 import Landing from '../components/Landing/Landing';
 import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/error";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar/Navbar";
 import { validateToken } from '../store/actions/auth';
 
 class Main extends Component {
