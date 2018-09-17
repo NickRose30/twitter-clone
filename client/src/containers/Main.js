@@ -9,6 +9,8 @@ import Navbar from "./Navbar/Navbar";
 import { validateToken } from '../store/actions/auth';
 import { css } from 'react-emotion';
 import { ScaleLoader } from 'react-spinners';
+import NewMessageForm from '../components/Messages/NewMessageForm';
+import withAuth from '../hocs/withAuth';
 
 const loadingContainerStyles = {
   height: '100vh',
@@ -79,6 +81,10 @@ class Main extends Component {
               />
             </div>
           )}/>
+          <Route
+            path='/users/:id/messages/new'
+            component={withAuth(NewMessageForm)}
+          />
           <Route path='/' render={() => <Redirect to='/'/>}/>
         </Switch>
       )
