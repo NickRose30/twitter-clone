@@ -5,10 +5,12 @@ import { logout } from '../../store/actions/auth';
 import './Navbar.css';
 
 class Navbar extends Component {
+
   logout = e => {
     e.preventDefault();
     this.props.logout();
   };
+
   render() {
     return (
       <nav className='navbar navbar-expand'>
@@ -19,6 +21,11 @@ class Navbar extends Component {
         </div>
         <ul className='nav navbar-nav navbar-right'>
           <li>
+            <Link to={`/users/${this.props.currentUser.user.id}/messages/new`}>
+              <p className='new-message-btn'>New Message</p>
+            </Link>
+          </li>
+          <li>
             <a onClick={this.logout}>Log Out</a>
           </li>
         </ul>
@@ -27,7 +34,7 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     currentUser: state.currentUser
   }
