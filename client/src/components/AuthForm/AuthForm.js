@@ -3,18 +3,13 @@ import './AuthForm.css';
 import { Link } from 'react-router-dom';
 
 class AuthForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      profileImageUrl: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  state = {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    profileImageUrl: ''
+  };
 
   handleChange = e => {
     this.setState({
