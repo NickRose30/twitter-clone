@@ -50,6 +50,13 @@ class AuthForm extends Component {
 
     /** This will listen for any change in the route and will execute the callback when a route change occurs */
     history.listen(() => {
+      this.setState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        profileImageUrl: ''
+      });
       removeError();
     });
 
