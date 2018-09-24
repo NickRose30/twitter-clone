@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageList from '../../containers/MessageList/MessageList';
+import MessageList from '../../containers/Messages/MessageList';
 import UserAside from '../UserAside/UserAside';
 
 const MessageTimeline = ({ profileImageUrl, username }) => (

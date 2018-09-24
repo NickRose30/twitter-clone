@@ -9,7 +9,7 @@ import Navbar from "./Navbar/Navbar";
 import { validateToken } from '../store/actions/auth';
 import { css } from 'react-emotion';
 import { ScaleLoader } from 'react-spinners';
-import NewMessageForm from '../components/Messages/NewMessageForm';
+import NewMessageForm from './Messages/NewMessageForm';
 import withAuth from '../hocs/withAuth';
 
 const loadingContainerStyles = {

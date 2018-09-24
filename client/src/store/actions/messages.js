@@ -7,10 +7,16 @@ export const loadMessages = messages => ({
   messages
 });
 
-export const fetchMessages = () => {
-  return dispatch => {
-    return axiosHelper('get', '/api/messages')
-      .then(res => dispatch(loadMessages(res)))
-      .catch(err => addError(err.message));
-  }
+export const fetchMessages = () => dispatch => {
+  return axiosHelper('get', '/api/messages')
+    .then(res => dispatch(loadMessages(res)))
+    .catch(err => addError(err.message));
+};
+
+export const postMessage = text => (dispatch, getState) => {
+  const { currentUser } = getState();
+  const id = currentUser.user.id;
+  return axiosHelper('post', `/api/users/${id}/messages`, { text })
+    .then(res => {})
+    .catch(err => addError(err));
 };
