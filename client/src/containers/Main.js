@@ -104,19 +104,15 @@ class Main extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser,
-    errors: state.errors
-  }
+const mapStateToProps = state => ({
+  currentUser: state.currentUser,
+  errors: state.errors
+});
+
+const mapDispatchToProps = {
+  authUser,
+  removeError,
+  validateToken
 };
 
-const mapDispatchToProps = () => {
-  return {
-    authUser,
-    removeError,
-    validateToken
-  }
-};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps())(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
