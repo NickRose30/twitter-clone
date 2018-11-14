@@ -34,10 +34,8 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser
-  }
-};
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+});
 
 export default connect(mapStateToProps, { logout })(Navbar);

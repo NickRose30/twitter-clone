@@ -32,10 +32,8 @@ class MessageList extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    messages: state.messages
-  }
-};
+const mapStateToProps = state => ({
+  messages: state.messages
+});
 
 export default connect(mapStateToProps, { fetchMessages })(MessageList);

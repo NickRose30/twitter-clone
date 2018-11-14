@@ -20,11 +20,9 @@ export default function withAuth(ComponentToBeRendered) {
     }
   }
 
-  const mapStateToProps = state => {
-    return {
-      isAuthenticated: state.currentUser.isAuthenticated
-    }
-  };
+  const mapStateToProps = state => ({
+    isAuthenticated: state.currentUser.isAuthenticated
+  });
 
   return connect(mapStateToProps, null)(Authenticate);
 }
