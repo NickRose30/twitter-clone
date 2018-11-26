@@ -20,7 +20,7 @@ class NewMessageForm extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
+        <Navbar />
         <form onSubmit={this.handleSubmit}>
           {this.props.errors.messages && (
             <div className='alert alert-danger'>{this.props.errors.messages}</div>
