@@ -2,6 +2,7 @@ import React from 'react';
 import DefaultProfileImage from '../../images/default-profile-image.jpg';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import './MessageItem.css';
 
 const MessageItem = ({
     date,
@@ -12,7 +13,7 @@ const MessageItem = ({
   }) => {
   return (
     <div>
-      <li className='list-group-item' >
+      <li className='list-group-item'>
         <img
           src={profileImageUrl || DefaultProfileImage}
           alt={username}
@@ -20,18 +21,20 @@ const MessageItem = ({
           width='100'
           className='timeline-image'
         />
-        <div className='message-area'>
-          <Link to='/'>@{username}&nbsp;</Link>
-          <span className='text-muted'>
-            {date &&
-              <Moment className='text-muted' format=' Do MMM YYYY' >
-                {date}
-              </Moment>
-            }
-          </span>
-          <p>{text}</p>
+        <div className='message-body'>
+          <div className='text-area'>
+            <Link to='/'>@{username}&nbsp;</Link>
+            <span className='text-muted'>
+              {date &&
+                <Moment className='text-muted' format=' Do MMM YYYY' >
+                  {date}
+                </Moment>
+              }
+            </span>
+            <p>{text}</p>
+          </div>
+          <button className='btn btn-danger delete-msg-btn' onClick={removeMessage}>X</button>
         </div>
-        <button className='btn btn-danger' onClick={removeMessage}>X</button>
       </li>
     </div>
   )
