@@ -22,17 +22,26 @@ class NewMessageForm extends Component {
       <div>
         <Navbar />
         <form onSubmit={this.handleSubmit}>
+          <h3>Add a New Message</h3>
           {this.props.errors.messages && (
             <div className='alert alert-danger'>{this.props.errors.messages}</div>
           )}
-          <input
+          <textarea
+            id='new-message-input'
             className='form-control'
             type='text'
             name='text'
             value={this.state.text}
             onChange={this.handleChange}
           />
-          <button type='submit' className='btn btn-success pull-right'>Add Message</button>
+          <button
+            id='add-message'
+            type='submit'
+            className='btn btn-success pull-right'
+            disabled={!this.state.text}
+          >
+            Add Message
+          </button>
         </form>
       </div>
     );
