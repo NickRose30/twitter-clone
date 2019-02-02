@@ -2,14 +2,15 @@ import React from 'react';
 import DefaultProfileImage from '../../images/default-profile-image.jpg';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
-import './MessageItem.css';
+import './Messages.css';
 
 const MessageItem = ({
     date,
     profileImageUrl,
     text,
     username,
-    removeMessage
+    removeMessage,
+    isCorrectUser
   }) => {
   return (
     <div>
@@ -33,7 +34,12 @@ const MessageItem = ({
             </span>
             <p>{text}</p>
           </div>
-          <button className='btn btn-danger delete-msg-btn' onClick={removeMessage}>X</button>
+          {isCorrectUser && <button
+            className='btn btn-danger delete-msg-btn'
+            onClick={removeMessage}
+          >
+            Delete
+          </button>}
         </div>
       </li>
     </div>

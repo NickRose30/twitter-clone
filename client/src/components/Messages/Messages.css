@@ -1,16 +1,25 @@
+img {
+    border-radius: 10rem;
+}
+
+.offset-1 {
+    width: 100%;
+}
+
 .message-body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .delete-msg-btn {
     height: 2em;
-    width: 2em;
+    width: 4em;
     padding: 0;
 }
 
-.list-group-item:last-child {
+#messages li.list-group-item {
+    padding-top: 12px;
     margin-bottom: 8px;
 }

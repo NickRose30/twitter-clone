@@ -7,7 +7,7 @@ const UserAside = ({ profileImageUrl, username }) => (
     <div className='panel panel-default'>
       <div className='panel-body'>
         <img
-          className='img-thumbnail'
+          className='user-aside img-thumbnail'
           src={profileImageUrl || DefaultProfileImage}
           alt={username}
         />
