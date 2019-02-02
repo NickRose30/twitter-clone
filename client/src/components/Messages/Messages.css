@@ -2,6 +2,16 @@ img {
     border-radius: 10rem;
 }
 
+.react-confirm-alert-body {
+    color: #4d8fd7;
+}
+
+.react-confirm-alert-button-group > button {
+    background-color: white;
+    border: 1px solid #4d8fd7;
+    color: #4d8fd7;
+}
+
 .offset-1 {
     width: 100%;
 }
