@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 mongoose.set('debug', true);
 mongoose.Promise = Promise;
-mongoose.connect(`mongodb://localhost:27017/twitter-clone`, {
+/**
+ * If we have a MONGODB_URI assigned to us (by heroku) use that url, otherwise use our local 
+ * mongo url, like for develoopment
+ */
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/twitter-clone', {
   keepAlive: true,
   useNewUrlParser: true
 }).catch(() => console.log(`Cannot connect to database. 

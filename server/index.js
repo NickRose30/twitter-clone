@@ -10,7 +10,12 @@ const bodyParser = require('body-parser');
 const db = require('./models');
 const ip = require('ip');
 const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
-const PORT = 8081;
+
+// The 'process.env.PORT' part was added as part of deployment to heroku. This just means that 
+// if we have a PORT variable assigned to us (by heroku) we will use that one, otherwise we 
+// will use 8081, like for development
+const PORT = process.env.PORT || 8081;
+
 /**
  * This is our custom error handler that we want to use. The default errors are large and hard to read.
  * Our custom handler returns nicely formatted json and only essential information.
