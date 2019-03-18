@@ -5,7 +5,7 @@
   },
   "proxies": {
     "/api": {
-      "origin": "https://twitter-clone-server-rn.herokuapp.com"
+      "origin": "https://twitter-clone-server-nr.herokuapp.com/api"
     }
   }
 }
