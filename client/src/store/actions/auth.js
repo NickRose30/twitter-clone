@@ -41,7 +41,7 @@ export const authUser = (type, userData) => {
   return dispatch => {
     return new Promise((resolve, reject) => {
       return axiosHelper('post', `/api/auth/${type}`, userData)
-        .then(({ ...user, token }) => {
+        .then(({ token, ...user }) => {
           localStorage.setItem('jwtToken', token);
           setAuthorizationToken(token);
           dispatch(setCurrentUser(user));
